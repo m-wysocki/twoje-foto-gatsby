@@ -10,33 +10,52 @@ const GalleryTemplate = ({data}) => (
       <ul>
         {data.strapiGallery.categories.map(category => (
             <li key={category.id}>
-              <Link to={`/categories/Category_${category.id}`}>{category.name}</Link>
+              <Link to={`/${category.slug}`}>{category.name}</Link>
             </li>
         ))}
       </ul>
-      <Img fixed={data.strapiGallery.cover_image.childImageSharp.fixed}/>
+      <Img fixed={data.strapiGallery.cover_image.localFile.childImageSharp.fixed}/>
       <p>{data.strapiGallery.description}</p>
+      <hr/>
+      {data.strapiGallery.images.map(img => (
+          <div key={img.id}>
+            <Img fixed={img.localFile.childImageSharp.fixed} />
+          </div>
+      ))}
     </Layout>
 )
 
 export default GalleryTemplate
 
 export const query = graphql`
-  query GalleryTemplate($id: String!) {
-    strapiGallery(id: {eq: $id}) {
+  query GalleryTemplate($slug: String!) {
+    strapiGallery(slug: {eq: $slug}) {
       name
       description
       date
       cover_image {
-        childImageSharp {
-          fixed{
-            ...GatsbyImageSharpFixed
+        localFile{
+          childImageSharp {
+            fixed{
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+      images {
+        id
+        localFile {
+          childImageSharp {
+            fixed{
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
       categories{
         id
         name
+        slug
       }
     }
   }

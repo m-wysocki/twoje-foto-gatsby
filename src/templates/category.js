@@ -1,6 +1,5 @@
 import React from 'react'
 import {graphql, Link} from 'gatsby'
-import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Image from "gatsby-image";
 
@@ -11,9 +10,9 @@ const CategoryTemplate = ({data}) => (
         {data.strapiCategory.galleries.map(gallery => (
             <li key={gallery.id}>
               <h2>
-                <Link to={`/Gallery_${gallery.id}`}>{gallery.name}</Link>
+                <Link to={`/galeria/${gallery.slug}`}>{gallery.name}</Link>
               </h2>
-              <Image fixed={gallery.cover_image.childImageSharp.fixed} />
+              <Image fixed={gallery.cover_image.localFile.childImageSharp.fixed} />
             </li>
         ))}
       </ul>
@@ -23,17 +22,20 @@ const CategoryTemplate = ({data}) => (
 export default CategoryTemplate
 
 export const query = graphql`
-  query CategoryTemplate($id: String!) {
-    strapiCategory(id: {eq: $id}) {
+  query CategoryTemplate($slug: String!) {
+    strapiCategory(slug: {eq: $slug}) {
       id
       name
       galleries{
         id
         name
+        slug
         cover_image {
-          childImageSharp {
-            fixed {
-              ...GatsbyImageSharpFixed
+          localFile{
+            childImageSharp {
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
             }
           }
         }

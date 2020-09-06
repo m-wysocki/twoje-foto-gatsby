@@ -14,9 +14,9 @@ const IndexPage = ({data}) => (
             {data.allStrapiGallery.edges.map(gallery => (
                 <li key={gallery.node.id}>
                     <h2>
-                        <Link to={`/${gallery.node.id}`}>{gallery.node.name}</Link>
+                        <Link to={`/galeria/${gallery.node.slug}`}>{gallery.node.name}</Link>
                     </h2>
-                    <Image fixed={gallery.node.cover_image.childImageSharp.fixed} />
+                    <Image fixed={gallery.node.cover_image.localFile.childImageSharp.fixed} />
                 </li>
             ))}
         </ul>
@@ -36,10 +36,13 @@ export const pageQuery = graphql`
                 node{
                     id
                     name
+                    slug
                     cover_image {
-                      childImageSharp {
-                        fixed {
-                          ...GatsbyImageSharpFixed
+                      localFile{
+                        childImageSharp {
+                          fixed {
+                            ...GatsbyImageSharpFixed
+                          }
                         }
                       }
                     }

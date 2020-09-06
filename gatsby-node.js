@@ -31,7 +31,7 @@ exports.createPages = ({actions, graphql}) => {
       allStrapiGallery {
         edges {
           node {
-            id
+            slug
           }
         }
       }
@@ -40,10 +40,10 @@ exports.createPages = ({actions, graphql}) => {
     // Create pages for each article.
     result.data.allStrapiGallery.edges.forEach(({node}) => {
       createPage({
-        path: `/${node.id}`,
+        path: `/galeria/${node.slug}`,
         component: path.resolve(`src/templates/gallery.js`),
         context: {
-          id: node.id,
+          slug: node.slug,
         },
       })
     })
@@ -54,7 +54,7 @@ exports.createPages = ({actions, graphql}) => {
       allStrapiCategory {
         edges {
           node {
-            id
+            slug
           }
         }
       }
@@ -63,10 +63,10 @@ exports.createPages = ({actions, graphql}) => {
     // Create pages for each user.
     result.data.allStrapiCategory.edges.forEach(({node}) => {
       createPage({
-        path: `/categories/${node.id}`,
+        path: `/${node.slug}`,
         component: path.resolve(`src/templates/category.js`),
         context: {
-          id: node.id,
+          slug: node.slug,
         },
       })
     })
