@@ -1,10 +1,9 @@
 import React from 'react'
 import {graphql, Link} from 'gatsby'
-import Layout from '../components/layout'
 import Image from "gatsby-image";
 
 const CategoryTemplate = ({data}) => (
-    <Layout>
+    <>
       <h1>{data.strapiCategory.name}</h1>
       <ul>
         {data.strapiCategory.galleries.map(gallery => (
@@ -16,7 +15,7 @@ const CategoryTemplate = ({data}) => (
             </li>
         ))}
       </ul>
-    </Layout>
+    </>
 )
 
 export default CategoryTemplate

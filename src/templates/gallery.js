@@ -1,10 +1,9 @@
 import React from 'react'
 import {graphql, Link} from 'gatsby'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
 
 const GalleryTemplate = ({data}) => (
-    <Layout>
+    <>
       <h1>{data.strapiGallery.name}</h1>
       <p>{data.strapiGallery.date}</p>
       <ul>
@@ -22,7 +21,7 @@ const GalleryTemplate = ({data}) => (
             <Img fixed={img.localFile.childImageSharp.fixed} />
           </div>
       ))}
-    </Layout>
+    </>
 )
 
 export default GalleryTemplate
