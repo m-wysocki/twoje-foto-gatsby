@@ -11,12 +11,18 @@ const SiteWrapper = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 `;
+const ContentWrapper = styled.div`
+  position: relative;
+  width: 67%;
+`;
 
 const MainLayout = ({children}) => (
     <SiteWrapper>
       <GlobalStyle />
       <Sidebar />
-      {children}
+      <ContentWrapper>
+        {children}
+      </ContentWrapper>
     </SiteWrapper>
 );
 
