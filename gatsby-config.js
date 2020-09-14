@@ -50,8 +50,7 @@ module.exports = {
           resolve: `gatsby-plugin-google-fonts`,
           options: {
             fonts: [
-              `Maven Pro\:400,500`,
-              `Roboto\:300,400,500`,
+              `Maven Pro\:300,400,500,600`
             ],
             display: 'swap'
           }

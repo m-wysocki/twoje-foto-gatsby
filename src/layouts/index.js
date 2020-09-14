@@ -1,7 +1,8 @@
 import React from "react";
 import Sidebar from "../components/sidebar";
 import GlobalStyle from "../assets/styles/globalStyles";
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
+import { theme } from '../theme/mainTheme';
 
 const SiteWrapper = styled.div`
   height: 100vh;
@@ -18,11 +19,13 @@ const ContentWrapper = styled.div`
 
 const MainLayout = ({children}) => (
     <SiteWrapper>
-      <GlobalStyle />
-      <Sidebar />
-      <ContentWrapper>
-        {children}
-      </ContentWrapper>
+      <GlobalStyle/>
+      <ThemeProvider theme={theme}>
+        <Sidebar/>
+        <ContentWrapper>
+          {children}
+        </ContentWrapper>
+      </ThemeProvider>
     </SiteWrapper>
 );
 

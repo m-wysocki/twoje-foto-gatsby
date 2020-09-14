@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
+    font-size: 16px;
   }
 
   *,
@@ -14,21 +15,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto';
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 1rem;
   }
 
   button {
     padding: 0;
     cursor: pointer;
-    font-family: 'Roboto';
-  }
-  
-  h1,h2,h3,h4,h5{
-    font-family: 'Maven Pro';
-  }
-  
-  p {
-    font-size: 16px;
+    font-family: 'Maven Pro', sans-serif;
   }
   
   a{

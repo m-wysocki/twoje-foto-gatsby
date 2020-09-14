@@ -1,6 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 import home2 from '../assets/images/home2.jpg';
+import {StyledLink} from "../components/styled-link";
+import {Paragraph} from "../components/paragraph";
+import {Heading} from "../components/heading";
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -44,18 +47,18 @@ const IndexPage = () => (
           <img src={home2} alt=""/>
         </ImageWrapper>
         <Content>
-          <h2>About me</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
-            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</p>
-          <a href="#">zobacz więcej</a>
+          <Heading>About me</Heading>
+          <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
+            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
+          <StyledLink href="#">zobacz więcej</StyledLink>
         </Content>
       </Column>
       <Column>
         <Content>
-          <h2>Our galleries</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
-            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</p>
-          <a href="#">zobacz więcej</a>
+          <Heading>Our galleries</Heading>
+          <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
+            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
+          <StyledLink href="#">zobacz więcej</StyledLink>
         </Content>
         <ImageWrapper>
           <img src={home2} alt=""/>
