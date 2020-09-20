@@ -1,22 +1,31 @@
 import React from "react";
-import {Link} from "gatsby";
-import Image from "gatsby-image";
+import {GalleriesList} from "../components/galeries-list";
+import GalleryCard from "../components/gallery-card";
+import Sidebar from "../components/sidebar";
+import {ContentWrapper} from "../components/content-wrapper";
+import Categories from "../components/categories";
 
-const GalleryPage = ({data}) => (
-    <div>
-      <h1>Galeria</h1>
-      <ul>
-        {data.allStrapiGallery.edges.map(gallery => (
-            <li key={gallery.node.id}>
-              <h2>
-                <Link to={`/galeria/${gallery.node.slug}`}>{gallery.node.name}</Link>
-              </h2>
-              <Image fixed={gallery.node.cover_image.localFile.childImageSharp.fixed} />
-            </li>
-        ))}
-      </ul>
-    </div>
-);
+const GalleryPage = ({data}) => {
+  const sidebarInfo = {
+    header: 'Galeria',
+    date: false,
+    paragraph: 'Galeria dolor sit amet, consectetur adipisicing elit. Culpa dignissimos dolores excepturi in magnam magni maiores odio similique veniam voluptatum.',
+  }
+  return (
+      <>
+        <Sidebar sidebarInfo={sidebarInfo}/>
+        <ContentWrapper>
+          <Categories categories={data.allStrapiCategory.edges} />
+          <GalleriesList>
+            {data.allStrapiGallery.edges.map(gallery => (
+                <GalleryCard gallery={gallery.node} key={gallery.node.id}/>
+            ))}
+          </GalleriesList>
+        </ContentWrapper>
+      </>
+
+  )
+};
 
 export default GalleryPage;
 
@@ -31,14 +40,23 @@ export const pageQuery = graphql`
                     cover_image {
                       localFile{
                         childImageSharp {
-                          fixed {
-                            ...GatsbyImageSharpFixed
+                          fluid {
+                            ...GatsbyImageSharpFluid
                           }
                         }
                       }
                     }
                 }
             }
+        }
+        allStrapiCategory {
+          edges {
+            node {
+              id
+              name
+              slug
+            }
+          }
         }
     }
 `;

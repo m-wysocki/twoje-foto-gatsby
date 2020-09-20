@@ -4,6 +4,8 @@ import home2 from '../assets/images/home2.jpg';
 import {StyledLink} from "../components/styled-link";
 import {Paragraph} from "../components/paragraph";
 import {Heading} from "../components/heading";
+import Sidebar from "../components/sidebar";
+import {ContentWrapper} from "../components/content-wrapper";
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -40,31 +42,44 @@ const Content = styled.div`
   padding: 50px;
 `;
 
-const IndexPage = () => (
-    <HomeWrapper>
-      <Column>
-        <ImageWrapper>
-          <img src={home2} alt=""/>
-        </ImageWrapper>
-        <Content>
-          <Heading>About me</Heading>
-          <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
-            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
-          <StyledLink href="#">zobacz więcej</StyledLink>
-        </Content>
-      </Column>
-      <Column>
-        <Content>
-          <Heading>Our galleries</Heading>
-          <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
-            iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
-          <StyledLink href="#">zobacz więcej</StyledLink>
-        </Content>
-        <ImageWrapper>
-          <img src={home2} alt=""/>
-        </ImageWrapper>
-      </Column>
-    </HomeWrapper>
-)
+const IndexPage = () => {
+  const sidebarInfo = {
+    header: false,
+    date: false,
+    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos dolores excepturi in magnam magni maiores odio similique veniam voluptatum.',
+  }
+  return (
+      <>
+        <Sidebar sidebarInfo={sidebarInfo}/>
+        <ContentWrapper homepage >
+          <HomeWrapper>
+            <Column>
+              <ImageWrapper>
+                <img src={home2} alt=""/>
+              </ImageWrapper>
+              <Content>
+                <Heading>About me</Heading>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
+                  iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
+                <StyledLink href="#">zobacz więcej</StyledLink>
+              </Content>
+            </Column>
+            <Column>
+              <Content>
+                <Heading>Our galleries</Heading>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur deserunt ea eligendi
+                  iste laudantium nesciunt odit quaerat, similique! Debitis, ullam!</Paragraph>
+                <StyledLink href="#">zobacz więcej</StyledLink>
+              </Content>
+              <ImageWrapper>
+                <img src={home2} alt=""/>
+              </ImageWrapper>
+            </Column>
+          </HomeWrapper>
+        </ContentWrapper>
+      </>
+
+  )
+}
 
 export default IndexPage;

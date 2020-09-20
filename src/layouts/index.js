@@ -1,8 +1,8 @@
 import React from "react";
-import Sidebar from "../components/sidebar";
 import GlobalStyle from "../assets/styles/globalStyles";
 import styled, {ThemeProvider} from 'styled-components';
-import { theme } from '../theme/mainTheme';
+import {theme} from '../theme/mainTheme';
+import SimpleReactLightbox from 'simple-react-lightbox'
 
 const SiteWrapper = styled.div`
   height: 100vh;
@@ -12,21 +12,16 @@ const SiteWrapper = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 `;
-const ContentWrapper = styled.div`
-  position: relative;
-  width: 67%;
-`;
 
 const MainLayout = ({children}) => (
-    <SiteWrapper>
-      <GlobalStyle/>
-      <ThemeProvider theme={theme}>
-        <Sidebar/>
-        <ContentWrapper>
+    <SimpleReactLightbox>
+      <SiteWrapper>
+        <GlobalStyle/>
+        <ThemeProvider theme={theme}>
           {children}
-        </ContentWrapper>
-      </ThemeProvider>
-    </SiteWrapper>
+        </ThemeProvider>
+      </SiteWrapper>
+    </SimpleReactLightbox>
 );
 
 export default MainLayout;
