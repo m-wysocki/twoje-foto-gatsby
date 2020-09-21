@@ -49,7 +49,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allStrapiCategory {
+        allStrapiCategory(filter: {galleries: {elemMatch: {id: {gt: 0}}}}) {
           edges {
             node {
               id

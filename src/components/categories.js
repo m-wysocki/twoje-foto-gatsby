@@ -3,14 +3,17 @@ import {Link} from 'gatsby';
 import styled from "styled-components";
 import {Heading} from "./heading";
 
-const CategoriesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3,auto);
-  grid-gap: 15px;
+const CategoriesBox = styled.div`
   margin-bottom: 100px;
   background-color: #f7f7f7;
   padding: 30px;
   border-radius: 5px;
+`;
+
+const CategoriesWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  grid-gap: 15px;
 `;
 
 const StyledLink = styled(Link)`
@@ -39,10 +42,27 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const StyledHeading = styled(Heading)`
+  position: relative;
+  width: auto;
+  display: inline-block;
+  z-index: 1;
+  &::before{
+    content: '';
+    width: 100%;
+    height: 40%;
+    background-color: ${({theme}) => theme.colorExtra};
+    z-index: -1;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 0;
+  }
+`;
+
 const Categories = ({categories}) => {
   return (
-      <>
-        <Heading>Rodzaje zdjęć:</Heading>
+      <CategoriesBox>
+        <StyledHeading>Rodzaje zdjęć</StyledHeading>
         <CategoriesWrapper>
             {categories.map(category => (
                   <StyledLink
@@ -54,7 +74,7 @@ const Categories = ({categories}) => {
                   </StyledLink>
             ))}
         </CategoriesWrapper>
-      </>
+      </CategoriesBox>
   );
 };
 

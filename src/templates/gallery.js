@@ -31,7 +31,7 @@ const GalleryTemplate = ({data}) => {
   ));
 
   masonryItems.unshift(
-      <a href={data.strapiGallery.cover_image.localFile.childImageSharp.original.src} data-attribute="SRL">
+      <a key={data.strapiGallery.cover_image.id} href={data.strapiGallery.cover_image.localFile.childImageSharp.original.src} data-attribute="SRL">
         <Img fluid={data.strapiGallery.cover_image.localFile.childImageSharp.fluid}/>
       </a>
   );
@@ -70,6 +70,7 @@ export const query = graphql`
       description
       date
       cover_image {
+        id
         localFile{
           childImageSharp {
             original{

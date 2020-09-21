@@ -1,6 +1,5 @@
 import React from 'react'
-import {graphql, Link} from 'gatsby'
-import Image from "gatsby-image";
+import {graphql} from 'gatsby';
 import Sidebar from "../components/sidebar";
 import {ContentWrapper} from "../components/content-wrapper";
 import Categories from "../components/categories";
@@ -53,7 +52,7 @@ export const query = graphql`
         }
       }
     }
-    allStrapiCategory {
+    allStrapiCategory(filter: {galleries: {elemMatch: {id: {gt: 0}}}}) {
       edges {
         node {
           id
