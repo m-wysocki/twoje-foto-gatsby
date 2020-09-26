@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'gatsby';
 import styled from "styled-components";
 import {Heading} from "./heading";
+import TlLink from "./tl-link";
 
 const CategoriesBox = styled.div`
   margin-bottom: 100px;
@@ -16,7 +16,7 @@ const CategoriesWrapper = styled.div`
   grid-gap: 15px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(TlLink)`
   color: ${({theme}) => theme.colorTextDark};
   font-size: 1.2rem;
   display: inline-block;
@@ -59,7 +59,7 @@ const StyledHeading = styled(Heading)`
   }
 `;
 
-const Categories = ({categories}) => {
+const Categories = ({categories, className}) => {
   return (
       <CategoriesBox>
         <StyledHeading>Rodzaje zdjęć</StyledHeading>
@@ -68,7 +68,7 @@ const Categories = ({categories}) => {
                   <StyledLink
                       to={`/${category.node.slug}`}
                       key={category.node.id}
-                      activeClassName="active"
+                      className={className}
                   >
                     {category.node.name}
                   </StyledLink>

@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "gatsby";
 import styled from "styled-components";
+import TlLink from "./tl-link";
 
 const StyledNav = styled.nav`
   display: flex;
@@ -38,10 +38,10 @@ const StyledNav = styled.nav`
 
 const Navigation = () => (
     <StyledNav>
-      <Link activeClassName="active" to='/'>Strona główna</Link>
-      <Link activeClassName="active" to='/galeria'>Galeria</Link>
-      <Link activeClassName="active" to='/o-nas'>O nas</Link>
-      <Link activeClassName="active" to='/kontakt'>Kontakt</Link>
+      <TlLink to="/">Strona główna</TlLink>
+      <TlLink to="/galeria">Galeria</TlLink>
+      <TlLink to="/o-nas">O nas</TlLink>
+      <TlLink to="/kontakt">Kontakt</TlLink>
     </StyledNav>
 );
 

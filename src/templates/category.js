@@ -1,10 +1,11 @@
 import React from 'react'
 import {graphql} from 'gatsby';
 import Sidebar from "../components/sidebar";
-import {ContentWrapper} from "../components/content-wrapper";
+import ContentWrapper from "../components/content-wrapper";
 import Categories from "../components/categories";
 import {GalleriesList} from "../components/galeries-list";
 import GalleryCard from "../components/gallery-card";
+import {PageWrapper} from "../components/page-wrapper";
 
 
 
@@ -16,7 +17,7 @@ const CategoryTemplate = ({data}) => {
   }
 
   return(
-      <>
+      <PageWrapper>
         <Sidebar sidebarInfo={sidebarInfo}/>
         <ContentWrapper>
           <Categories categories={data.allStrapiCategory.edges} />
@@ -26,7 +27,7 @@ const CategoryTemplate = ({data}) => {
             ))}
           </GalleriesList>
         </ContentWrapper>
-      </>
+      </PageWrapper>
   )
 }
 

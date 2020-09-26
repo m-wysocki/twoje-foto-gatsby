@@ -1,9 +1,11 @@
 import React from "react";
+import {graphql} from "gatsby";
 import {GalleriesList} from "../components/galeries-list";
 import GalleryCard from "../components/gallery-card";
 import Sidebar from "../components/sidebar";
-import {ContentWrapper} from "../components/content-wrapper";
+import ContentWrapper from "../components/content-wrapper";
 import Categories from "../components/categories";
+import {PageWrapper} from "../components/page-wrapper";
 
 const GalleryPage = ({data}) => {
   const sidebarInfo = {
@@ -12,7 +14,7 @@ const GalleryPage = ({data}) => {
     paragraph: 'Galeria dolor sit amet, consectetur adipisicing elit. Culpa dignissimos dolores excepturi in magnam magni maiores odio similique veniam voluptatum.',
   }
   return (
-      <>
+      <PageWrapper>
         <Sidebar sidebarInfo={sidebarInfo}/>
         <ContentWrapper>
           <Categories categories={data.allStrapiCategory.edges} />
@@ -22,8 +24,7 @@ const GalleryPage = ({data}) => {
             ))}
           </GalleriesList>
         </ContentWrapper>
-      </>
-
+      </PageWrapper>
   )
 };
 

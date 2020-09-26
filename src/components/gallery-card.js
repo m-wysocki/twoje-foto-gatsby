@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "gatsby";
+import TlLink from "./tl-link";
 import Image from "gatsby-image";
 import styled from 'styled-components';
 import {Heading} from "./heading";
@@ -51,7 +51,7 @@ const ImageWrapper = styled.div`
     position: relative;
 `;
 
-const Gallery = styled(Link)`
+const Gallery = styled(TlLink)`
   &:nth-child(odd){
     grid-column: 1/4;
   }
@@ -82,9 +82,9 @@ const Gallery = styled(Link)`
   }
 `;
 
-const GalleryCard = ({gallery}) => {
+const GalleryCard = ({gallery, className}) => {
   return (
-      <Gallery key={gallery.id} to={`/galeria/${gallery.slug}`}>
+      <Gallery key={gallery.id} to={`/galeria/${gallery.slug}`} className={className}>
         <StyledHeading small>
           {gallery.name}
         </StyledHeading>

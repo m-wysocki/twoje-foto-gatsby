@@ -4,8 +4,9 @@ import Img from 'gatsby-image'
 import Masonry from 'react-masonry-css'
 import { SRLWrapper } from 'simple-react-lightbox';
 import Sidebar from "../components/sidebar";
-import {ContentWrapper} from "../components/content-wrapper";
+import ContentWrapper from "../components/content-wrapper";
 import '../assets/styles/masonry.css';
+import {PageWrapper} from "../components/page-wrapper";
 
 const GalleryTemplate = ({data}) => {
 
@@ -37,14 +38,14 @@ const GalleryTemplate = ({data}) => {
   );
 
   return (
-      <>
+      <PageWrapper>
         {/*  {data.strapiGallery.categories.map(category => (*/}
         {/*      <li key={category.id}>*/}
         {/*        <Link to={`/${category.slug}`}>{category.name}</Link>*/}
         {/*      </li>*/}
         {/*  ))}*/}
         <Sidebar sidebarInfo={sidebarInfo}/>
-        <ContentWrapper gallery>
+        <ContentWrapper pageType='gallery'>
         <SRLWrapper options={optionsLightbox}>
           <Masonry
               breakpointCols={2}
@@ -57,7 +58,7 @@ const GalleryTemplate = ({data}) => {
 
 
         </ContentWrapper>
-      </>
+      </PageWrapper>
   )
 }
 
