@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import styled from 'styled-components';
 import gsap from "gsap";
-import home2 from '../assets/images/home2.jpg';
 import {StyledLink} from "../components/styled-link";
 import {Paragraph} from "../components/paragraph";
 import {Heading} from "../components/heading";
 import Sidebar from "../components/sidebar";
 import ContentWrapper from "../components/content-wrapper";
 import {PageWrapper} from "../components/page-wrapper";
+import home2 from '../assets/images/home2.jpg';
 
 const HomeWrapper = styled.div`
   display: flex;

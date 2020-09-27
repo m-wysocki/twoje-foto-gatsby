@@ -42,27 +42,10 @@ const StyledLink = styled(TlLink)`
   }
 `;
 
-const StyledHeading = styled(Heading)`
-  position: relative;
-  width: auto;
-  display: inline-block;
-  z-index: 1;
-  &::before{
-    content: '';
-    width: 100%;
-    height: 40%;
-    background-color: ${({theme}) => theme.colorExtra};
-    z-index: -1;
-    opacity: 0.4;
-    position: absolute;
-    bottom: 0;
-  }
-`;
-
 const Categories = ({categories, className}) => {
   return (
       <CategoriesBox>
-        <StyledHeading>Rodzaje zdjęć</StyledHeading>
+        <Heading>Rodzaje zdjęć</Heading>
         <CategoriesWrapper>
             {categories.map(category => (
                   <StyledLink

@@ -12,9 +12,9 @@ export const animateSidebar = (node, direction) => {
   const tl = gsap.timeline();
 
   if(direction === 'up'){
-    tl.fromTo(sidebarElements[0], {y: '+=100'}, {duration: 1, y: '-=100', autoAlpha: 1});
+    tl.fromTo(sidebarElements[0], {y: '+=100'}, {duration: 0.8, y: '-=100', autoAlpha: 1});
     for(let i=1; i < sidebarElements.length; i++){
-      tl.fromTo(sidebarElements[i], {y: '+=50'}, {duration: 1, y: '-=50', autoAlpha: 1}, "<0.5");
+      tl.fromTo(sidebarElements[i], {y: '+=50'}, {duration: 0.8, y: '-=50', autoAlpha: 1}, "<0.4");
     }
   }else{
     for(let i=(sidebarElements.length-1); i >= 0; i--){

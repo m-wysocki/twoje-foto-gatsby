@@ -1,7 +1,6 @@
 import React from 'react';
 import TransitionLink from "gatsby-plugin-transition-link";
 import {animateSidebar} from "./sidebar";
-import {animateHomePage} from "../pages/index";
 import {animateContentWrapper} from "./content-wrapper";
 
 const TlLink = ({children, to, className }) => {
@@ -17,13 +16,13 @@ const TlLink = ({children, to, className }) => {
               animateContentWrapper(node, 'down');
               console.log('exit---' + to);
             },
-            length: 1
+            length: 0.8
           }}
           entry={{
             trigger: ({ node, e, exit, entry }) => {
               console.log('entry---' + to);
             },
-            delay: 1
+            delay: 0.8
           }}
       >
         {children}

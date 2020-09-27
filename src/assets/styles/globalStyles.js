@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+  
+  img{
+    max-width: 100%;
+  }
 `;
 
 export default GlobalStyle;

@@ -20,9 +20,9 @@ export const animateContentWrapper = (node, direction) => {
   const tl = gsap.timeline();
 
   if(direction === 'up'){
-    tl.fromTo(contentWrapper[0], {autoAlpha: 0}, {duration: 1, autoAlpha: 1});
+    tl.fromTo(contentWrapper[0], {autoAlpha: 0}, {duration: 0.6, autoAlpha: 1});
   }else{
-    tl.fromTo(contentWrapper[0], {autoAlpha: 1}, {duration: 1, autoAlpha: 0});
+    tl.fromTo(contentWrapper[0], {autoAlpha: 1}, {duration: 0.6, autoAlpha: 0});
   }
 }
 
