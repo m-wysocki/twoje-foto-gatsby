@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import Masonry from 'react-masonry-css'
@@ -7,6 +7,7 @@ import Sidebar from "../components/sidebar";
 import ContentWrapper from "../components/content-wrapper";
 import '../assets/styles/masonry.css';
 import {PageWrapper} from "../components/page-wrapper";
+import gsap from "gsap";
 
 const GalleryTemplate = ({data}) => {
 
@@ -26,16 +27,44 @@ const GalleryTemplate = ({data}) => {
   }
 
   const masonryItems = data.strapiGallery.images.map(img => (
-      <a key={img.id} href={img.localFile.childImageSharp.original.src} data-attribute="SRL">
+      <a
+          key={img.id}
+          href={img.localFile.childImageSharp.original.src}
+          className="masonryItem"
+          data-attribute="SRL"
+      >
         <Img fluid={img.localFile.childImageSharp.fluid}/>
       </a>
   ));
 
   masonryItems.unshift(
-      <a key={data.strapiGallery.cover_image.id} href={data.strapiGallery.cover_image.localFile.childImageSharp.original.src} data-attribute="SRL">
+      <a
+          key={data.strapiGallery.cover_image.id}
+          href={data.strapiGallery.cover_image.localFile.childImageSharp.original.src}
+          className="masonryItem"
+          data-attribute="SRL"
+      >
         <Img fluid={data.strapiGallery.cover_image.localFile.childImageSharp.fluid}/>
       </a>
   );
+
+
+  const animateMe = () => {
+    const elements = document.getElementsByClassName("masonryItem");
+    const contentWrapper = document.getElementsByClassName("contentWrapper");
+    gsap.set([...elements], {autoAlpha: 0});
+    [...elements].forEach(el => {
+      gsap.fromTo(el, {y: '+=100'}, {duration: 1, y: '-=100', autoAlpha: 1, scrollTrigger: {
+          trigger: el,
+          scroller: contentWrapper[0],
+          start: 'top 100%',
+        }});
+    });
+  }
+
+  useEffect(() => {
+    animateMe();
+  },[]);
 
   return (
       <PageWrapper>

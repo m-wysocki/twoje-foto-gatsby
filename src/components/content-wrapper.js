@@ -26,7 +26,7 @@ export const animateContentWrapper = (node, direction) => {
   }
 }
 
-const ContentWrapper = ({children, pageType}) => {
+const ContentWrapper = ({children, pageType}, ref) => {
 
   useEffect(()=>{
     animateContentWrapper(document, 'up');
