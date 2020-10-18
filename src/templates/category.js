@@ -1,69 +1,57 @@
-import React, {useEffect, useRef} from 'react'
-import {graphql} from 'gatsby';
-import Sidebar from "../components/sidebar";
-import ContentWrapper from "../components/content-wrapper";
-import Categories from "../components/categories";
-import {GalleriesList} from "../components/galeries-list";
-import GalleryCard from "../components/gallery-card";
-import {PageWrapper} from "../components/page-wrapper";
-import gsap from "gsap";
+import React, { useEffect, useRef } from 'react';
+import { graphql } from 'gatsby';
+import MainTemplate from './mainTemplate';
+import useSidebar from '../hooks/useSidebar';
+import { animateUpWithScroll } from '../utils/animateUpWithScroll';
+import ContentWrapper from '../components/organisms/content-wrapper';
+import Categories from '../components/molecules/categories';
+import { GalleriesList } from '../components/molecules/galeries-list.styled';
+import GalleryCard from '../components/atoms/gallery-card';
 
-
-
-const CategoryTemplate = ({data}) => {
-  const sidebarInfo = {
+const CategoryTemplate = ({ data }) => {
+  useSidebar({
     header: data.strapiCategory.name,
     date: false,
-    paragraph: 'Przeglądaj zdjęcia z wybranej kategorii (może lepiej dać tu opisy wszystkich kategorii z osobna)',
-  }
+    paragraph:
+      'Przeglądaj zdjęcia z wybranej kategorii (może lepiej dać tu opisy wszystkich kategorii z osobna)',
+  });
 
-  const galleryList = useRef(null);
-
-  const animateMe = () => {
-    const elements = galleryList.current.children;
-    const contentWrapper = document.getElementsByClassName("contentWrapper");
-    gsap.set([...elements], {autoAlpha: 0});
-    [...elements].forEach(el => {
-      gsap.fromTo(el, {y: '+=100'}, {duration: 1, y: '-=100', autoAlpha: 1, scrollTrigger: {
-          trigger: el,
-          scroller: contentWrapper[0],
-          start: 'top 80%',
-        }});
-    });
-  }
+  const galleryListRef = useRef(null);
+  const contentWrapperRef = useRef(null);
 
   useEffect(() => {
-    animateMe();
-  },[]);
+    const elements = galleryListRef.current.children;
+    const contentWrapper = contentWrapperRef.current;
+    animateUpWithScroll(elements, contentWrapper);
+  }, []);
 
-  return(
-      <PageWrapper>
-        <Sidebar sidebarInfo={sidebarInfo}/>
-        <ContentWrapper>
-          <Categories categories={data.allStrapiCategory.edges} />
-          <GalleriesList ref={galleryList}>
-            {data.strapiCategory.galleries.map(gallery => (
-                <GalleryCard gallery={gallery} key={gallery.id}/>
-            ))}
-          </GalleriesList>
-        </ContentWrapper>
-      </PageWrapper>
-  )
-}
+  return (
+    <MainTemplate>
+      <ContentWrapper ref={contentWrapperRef}>
+        <Categories categories={data.allStrapiCategory.edges} />
+        <GalleriesList ref={galleryListRef}>
+          {data.strapiCategory.galleries.map(gallery => (
+            <GalleryCard gallery={gallery} key={gallery.id} />
+          ))}
+        </GalleriesList>
+      </ContentWrapper>
+    </MainTemplate>
+  );
+};
 
-export default CategoryTemplate
+export default CategoryTemplate;
 
 export const query = graphql`
   query CategoryTemplate($slug: String!) {
-    strapiCategory(slug: {eq: $slug}) {
+    strapiCategory(slug: { eq: $slug }) {
       id
       name
-      galleries{
+      galleries {
         id
         name
         slug
         cover_image {
-          localFile{
+          localFile {
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid
@@ -73,7 +61,7 @@ export const query = graphql`
         }
       }
     }
-    allStrapiCategory(filter: {galleries: {elemMatch: {id: {gt: 0}}}}) {
+    allStrapiCategory(filter: { galleries: { elemMatch: { id: { gt: 0 } } } }) {
       edges {
         node {
           id
@@ -83,4 +71,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

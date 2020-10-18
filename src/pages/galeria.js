@@ -1,87 +1,74 @@
-import React, {useEffect, useRef} from "react";
-import {graphql} from "gatsby";
-import gsap from "gsap";
-import {GalleriesList} from "../components/galeries-list";
-import GalleryCard from "../components/gallery-card";
-import Sidebar from "../components/sidebar";
-import ContentWrapper from "../components/content-wrapper";
-import Categories from "../components/categories";
-import {PageWrapper} from "../components/page-wrapper";
+import React, { useEffect, useRef } from 'react';
+import { graphql } from 'gatsby';
+import { GalleriesList } from '../components/molecules/galeries-list.styled';
+import GalleryCard from '../components/atoms/gallery-card';
+import ContentWrapper from '../components/organisms/content-wrapper';
+import Categories from '../components/molecules/categories';
+import { animateUpWithScroll } from '../utils/animateUpWithScroll';
+import useSidebar from '../hooks/useSidebar';
+import MainTemplate from '../templates/mainTemplate';
 
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-
-const GalleryPage = ({data}) => {
-  const sidebarInfo = {
+const GalleryPage = ({ data }) => {
+  useSidebar({
     header: 'Galeria',
     date: false,
-    paragraph: 'Galeria dolor sit amet, consectetur adipisicing elit. Culpa dignissimos dolores excepturi in magnam magni maiores odio similique veniam voluptatum.',
-  }
+    paragraph:
+      'Galeria dolor sit amet, consectetur adipisicing elit. Culpa dignissimos dolores excepturi in magnam magni maiores odio similique veniam voluptatum.',
+  });
 
-  const galleryList = useRef(null);
-
-  const animateMe = () => {
-    const elements = galleryList.current.children;
-    const contentWrapper = document.getElementsByClassName("contentWrapper");
-    gsap.set([...elements], {autoAlpha: 0});
-    [...elements].forEach(el => {
-      gsap.fromTo(el, {y: '+=100'}, {duration: 1, y: '-=100', autoAlpha: 1, scrollTrigger: {
-          trigger: el,
-          scroller: contentWrapper[0],
-          start: 'top 80%',
-        }});
-    });
-  }
+  const galleryListRef = useRef(null);
+  const contentWrapperRef = useRef(null);
 
   useEffect(() => {
-    animateMe();
-  },[]);
+    const elements = galleryListRef.current.children;
+    const contentWrapper = contentWrapperRef.current;
+    animateUpWithScroll(elements, contentWrapper);
+  }, []);
 
   return (
-      <PageWrapper>
-        <Sidebar sidebarInfo={sidebarInfo}/>
-        <ContentWrapper>
-          <Categories categories={data.allStrapiCategory.edges} />
-          <GalleriesList ref={galleryList}>
-            {data.allStrapiGallery.edges.map(gallery => (
-                <GalleryCard  gallery={gallery.node} key={gallery.node.id}/>
-            ))}
-          </GalleriesList>
-        </ContentWrapper>
-      </PageWrapper>
-  )
+    <MainTemplate>
+      <ContentWrapper ref={contentWrapperRef}>
+        <Categories categories={data.allStrapiCategory.edges} />
+        <GalleriesList ref={galleryListRef}>
+          {data.allStrapiGallery.edges.map(gallery => (
+            <GalleryCard gallery={gallery.node} key={gallery.node.id} />
+          ))}
+        </GalleriesList>
+      </ContentWrapper>
+    </MainTemplate>
+  );
 };
 
 export default GalleryPage;
 
 export const pageQuery = graphql`
-    query IndexQuery {
-        allStrapiGallery{
-            edges{
-                node{
-                    id
-                    name
-                    slug
-                    cover_image {
-                      localFile{
-                        childImageSharp {
-                          fluid {
-                            ...GatsbyImageSharpFluid
-                          }
-                        }
-                      }
-                    }
+  query IndexQuery {
+    allStrapiGallery {
+      edges {
+        node {
+          id
+          name
+          slug
+          cover_image {
+            localFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
-            }
-        }
-        allStrapiCategory(filter: {galleries: {elemMatch: {id: {gt: 0}}}}) {
-          edges {
-            node {
-              id
-              name
-              slug
+              }
             }
           }
         }
+      }
     }
+    allStrapiCategory(filter: { galleries: { elemMatch: { id: { gt: 0 } } } }) {
+      edges {
+        node {
+          id
+          name
+          slug
+        }
+      }
+    }
+  }
 `;

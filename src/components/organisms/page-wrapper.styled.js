@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const PageWrapper = styled.div`
+export const PageWrapperStyled = styled.div`
   height: 100vh;
   max-width: 100%;
   overflow: hidden;
