@@ -7,4 +7,8 @@ export const PageWrapperStyled = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  ${({ theme }) => theme.mqmd} {
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;

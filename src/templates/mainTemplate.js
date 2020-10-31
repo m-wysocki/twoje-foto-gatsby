@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/molecules/sidebar';
-import { PageWrapperStyled } from '../components/organisms/page-wrapper.styled';
+import { PageWrapperStyled } from '../components/styled/page-wrapper.styled';
 
 const MainTemplate = ({ children }) => {
   return (

@@ -4,16 +4,16 @@ import { Heading } from '../atoms/heading';
 import TlLink from '../atoms/tl-link';
 
 const CategoriesBox = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
   background-color: #f7f7f7;
-  padding: 30px;
+  padding: 2rem;
   border-radius: 5px;
 `;
 
 const CategoriesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 15px;
+  grid-gap: 1rem;
 `;
 
 const StyledLink = styled(TlLink)`
@@ -25,18 +25,18 @@ const StyledLink = styled(TlLink)`
   transition: transform 0.3s ease-in-out;
   &::before {
     content: '';
-    height: 2px;
-    width: 20px;
+    height: 0.15rem;
+    width: 1.5rem;
     background-color: ${({ theme }) => theme.colorExtra};
     position: absolute;
-    left: -30px;
+    left: -2rem;
     top: calc(50% - 1px);
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
   }
   &:hover,
   &.active {
-    transform: translateX(30px);
+    transform: translateX(2rem);
     &::before {
       transform: scaleX(1);
     }

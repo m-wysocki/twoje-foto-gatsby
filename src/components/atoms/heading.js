@@ -5,7 +5,7 @@ export const Heading = styled.h2`
   font-weight: ${({ theme }) => theme.fontMedium};
   font-size: ${({ small }) => (small ? '1.4rem' : '1.8rem')};
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1.3rem;
   position: relative;
   width: auto;
   display: inline-block;

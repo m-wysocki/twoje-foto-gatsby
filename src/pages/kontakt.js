@@ -11,7 +11,7 @@ import { Heading } from '../components/atoms/heading';
 import { Paragraph } from '../components/atoms/paragraph';
 import logo from '../assets/images/logo2.png';
 import * as S from '../components/organisms/subpages-with-foto';
-import * as SC from '../components/organisms/contactpage.styled';
+import * as SC from '../components/styled/contactpage.styled';
 
 const ContactPage = () => {
   useSidebar({

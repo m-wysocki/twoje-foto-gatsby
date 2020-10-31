@@ -10,13 +10,13 @@ const StyledNav = styled.nav`
     color: ${({ theme }) => theme.colorTextLight};
     font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.15rem;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
     &::before {
       content: '';
       width: 100%;
-      height: 2px;
+      height: 0.15rem;
       background-color: ${({ theme }) => theme.colorExtra};
       opacity: 1;
       position: absolute;

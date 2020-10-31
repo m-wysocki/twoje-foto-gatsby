@@ -15,7 +15,6 @@ export const Column = styled.div`
 
 export const ImageWrapper = styled.div`
   height: 60%;
-  background-color: lightslategrey;
   width: 100%;
   display: flex;
   align-items: center;
@@ -32,5 +31,5 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 50px;
+  padding: 3.5rem;
 `;

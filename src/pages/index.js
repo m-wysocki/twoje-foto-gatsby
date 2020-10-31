@@ -6,7 +6,7 @@ import { StyledLink } from '../components/atoms/styled-link';
 import { Paragraph } from '../components/atoms/paragraph';
 import { Heading } from '../components/atoms/heading';
 import ContentWrapper from '../components/organisms/content-wrapper';
-import * as S from '../components/organisms/homepage.styled';
+import * as S from '../components/styled/homepage.styled';
 import home2 from '../assets/images/home2.jpg';
 
 export const animateHomePage = (node, direction) => {

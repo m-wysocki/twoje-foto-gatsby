@@ -12,7 +12,7 @@ export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
 `;
 
 export const ImgWrapper = styled.div`

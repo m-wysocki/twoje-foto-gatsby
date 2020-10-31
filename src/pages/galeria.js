@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
-import { GalleriesList } from '../components/molecules/galeries-list.styled';
+import { GalleriesList } from '../components/styled/galeries-list.styled';
 import GalleryCard from '../components/atoms/gallery-card';
 import ContentWrapper from '../components/organisms/content-wrapper';
 import Categories from '../components/molecules/categories';

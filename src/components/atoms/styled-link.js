@@ -6,12 +6,12 @@ export const StyledLink = styled.a`
   color: ${({ theme }) => theme.colorTextDark};
   font-weight: ${({ theme }) => theme.fontMedium};
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   transition: color 0.3s ease-in-out;
   &::before {
     content: '';
     width: 100%;
-    height: 3px;
+    height: 0.2rem;
     background-color: ${({ theme }) => theme.colorTextLight};
     opacity: 0.2;
     position: absolute;

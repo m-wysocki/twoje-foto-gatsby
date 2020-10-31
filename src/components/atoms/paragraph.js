@@ -5,7 +5,7 @@ export const Paragraph = styled.p`
   line-height: 1.5;
   font-size: 1rem;
   font-weight: ${({ theme }) => theme.fontRegular};
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   &:first-of-type {
     margin-top: 0;
   }

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { StyledLink } from '../atoms/styled-link';
 
 export const Contact = styled.div`
-  margin-bottom: 150px;
+  margin-bottom: 9.35rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 1.5rem;
 `;
 
 export const LogoWrapper = styled.div`
@@ -16,13 +16,16 @@ export const LogoWrapper = styled.div`
   width: 50%;
   img {
     max-width: 200px;
+    ${({ theme }) => theme.mqxl} {
+      max-width: 150px;
+    }
   }
 `;
 
 export const ContactLinks = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 2rem;
   align-items: start;
   width: fit-content;
 `;
@@ -34,7 +37,10 @@ export const ContactItem = styled.div`
   & > svg {
     margin-right: 10px;
     color: ${({ theme }) => theme.colorTextDark};
-    margin-top: -8px;
+    margin-top: -0.4rem;
+    min-width: 15px;
+    width: 1rem;
+    height: auto;
   }
 `;
 

@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import SidebarContext from '../../context/sidebarContext';
 import Navigation from './navigation';
-import * as S from './sidebar.styled';
+import * as S from '../styled/sidebar.styled';
 import logo from '../../assets/images/logo.png';
 
 export const animateSidebar = (node, direction) => {
@@ -12,16 +12,14 @@ export const animateSidebar = (node, direction) => {
   gsap.set([...sidebarElements], { autoAlpha: direction === 'up' ? 0 : 1 });
   const tl = gsap.timeline();
 
-  console.log(sidebarElements.length);
-
   if (direction === 'up') {
     tl.fromTo(sidebarElements[0], { y: '+=100' }, { duration: 0.8, y: '-=100', autoAlpha: 1 });
     for (let i = 1; i < sidebarElements.length; i += 1) {
       tl.fromTo(
         sidebarElements[i],
         { y: '+=50' },
-        { duration: 0.8, y: '-=50', autoAlpha: 1 },
-        '<0.4',
+        { duration: 0.6, y: '-=50', autoAlpha: 1 },
+        '<0.2',
       );
     }
   } else {
@@ -30,7 +28,7 @@ export const animateSidebar = (node, direction) => {
         sidebarElements[i],
         { y: '0' },
         { duration: 0.6, y: '+=100', autoAlpha: 0 },
-        '<0.2',
+        '<0.1',
       );
     }
   }

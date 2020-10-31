@@ -5,7 +5,7 @@ import useSidebar from '../hooks/useSidebar';
 import { animateUpWithScroll } from '../utils/animateUpWithScroll';
 import ContentWrapper from '../components/organisms/content-wrapper';
 import Categories from '../components/molecules/categories';
-import { GalleriesList } from '../components/molecules/galeries-list.styled';
+import { GalleriesList } from '../components/styled/galeries-list.styled';
 import GalleryCard from '../components/atoms/gallery-card';
 
 const CategoryTemplate = ({ data }) => {

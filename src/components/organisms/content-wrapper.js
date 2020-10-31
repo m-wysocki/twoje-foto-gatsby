@@ -9,14 +9,17 @@ const StyledContentWrapper = styled.div`
   ${({ pageType }) =>
     pageType !== 'homepage' &&
     css`
-      padding: 60px 80px;
+      padding: 3.75rem 5rem;
       overflow: auto;
     `}
   ${({ pageType }) =>
     pageType === 'gallery' &&
     css`
-      padding: 30px;
+      padding: 2rem;
     `}
+  ${({ theme }) => theme.mqmd} {
+    width: 100%;
+  }
 `;
 
 export const animateContentWrapper = (node, direction) => {

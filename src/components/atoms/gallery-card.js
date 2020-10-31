@@ -10,18 +10,18 @@ const Frame = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 2rem;
+  margin-left: 2rem;
   opacity: 0.6;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   &::before {
     content: '';
     display: block;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    width: calc(100% - 1.5rem);
+    height: calc(100% - 1.5rem);
     position: relative;
-    top: 10px;
-    left: 10px;
+    top: 0.7rem;
+    left: 0.7rem;
     background-color: #fff;
   }
 `;
@@ -57,18 +57,18 @@ const Gallery = styled(TlLink)`
   &:nth-child(even) {
     grid-column: 3/6;
     ${Frame} {
-      margin-left: -30px;
+      margin-left: -2rem;
     }
   }
   &:hover {
     &:nth-child(even) {
       ${Frame} {
-        transform: translate(10px, -10px);
+        transform: translate(0.7rem, -0.7rem);
       }
     }
     &:nth-child(odd) {
       ${Frame} {
-        transform: translate(-10px, -10px);
+        transform: translate(-0.7rem, -0.7rem);
         opacity: 1;
       }
     }
