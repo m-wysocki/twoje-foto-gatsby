@@ -8,25 +8,28 @@
 
 const path = require(`path`);
 
-const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
-  // Query for nodes to use in creating pages.
-  resolve(
+const makeRequest = (graphql, request) =>
+  new Promise((resolve, reject) => {
+    // Query for nodes to use in creating pages.
+    resolve(
       graphql(request).then(result => {
         if (result.errors) {
-          reject(result.errors)
+          reject(result.errors);
         }
 
         return result;
-      })
-  )
-});
+      }),
+    );
+  });
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = ({actions, graphql}) => {
-  const {createPage} = actions;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
-  const getGalleries = makeRequest(graphql, `
+  const getGalleries = makeRequest(
+    graphql,
+    `
     {
       allStrapiGallery {
         edges {
@@ -36,20 +39,23 @@ exports.createPages = ({actions, graphql}) => {
         }
       }
     }
-    `).then(result => {
+    `,
+  ).then(result => {
     // Create pages for each article.
-    result.data.allStrapiGallery.edges.forEach(({node}) => {
+    result.data.allStrapiGallery.edges.forEach(({ node }) => {
       createPage({
         path: `/galeria/${node.slug}`,
         component: path.resolve(`src/templates/gallery.js`),
         context: {
           slug: node.slug,
         },
-      })
-    })
+      });
+    });
   });
 
-  const getCategories = makeRequest(graphql, `
+  const getCategories = makeRequest(
+    graphql,
+    `
     {
       allStrapiCategory {
         edges {
@@ -59,22 +65,35 @@ exports.createPages = ({actions, graphql}) => {
         }
       }
     }
-    `).then(result => {
+    `,
+  ).then(result => {
     // Create pages for each user.
-    result.data.allStrapiCategory.edges.forEach(({node}) => {
+    result.data.allStrapiCategory.edges.forEach(({ node }) => {
       createPage({
         path: `/${node.slug}`,
         component: path.resolve(`src/templates/category.js`),
         context: {
           slug: node.slug,
         },
-      })
-    })
+      });
+    });
   });
 
   // Queries for articles and authors nodes to use in creating pages.
-  return Promise.all([
-    getGalleries,
-    getCategories,
-  ])
+  return Promise.all([getGalleries, getCategories]);
+};
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /bad-module/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
 };
