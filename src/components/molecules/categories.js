@@ -8,12 +8,19 @@ const CategoriesBox = styled.div`
   background-color: #f7f7f7;
   padding: 2rem;
   border-radius: 5px;
+  ${({ theme }) => theme.mqxs} {
+    padding: 1rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 const CategoriesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 1rem;
+  ${({ theme }) => theme.mqxs} {
+    grid-template-columns: repeat(2, auto);
+  }
 `;
 
 const StyledLink = styled(TlLink)`
@@ -23,6 +30,11 @@ const StyledLink = styled(TlLink)`
   position: relative;
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
+
+  ${({ theme }) => theme.mqxs} {
+    font-size: 1rem;
+  }
+
   &::before {
     content: '';
     height: 0.15rem;
@@ -33,10 +45,17 @@ const StyledLink = styled(TlLink)`
     top: calc(50% - 1px);
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
+    ${({ theme }) => theme.mqxs} {
+      width: 1rem;
+      left: -1.5rem;
+    }
   }
   &:hover,
   &.active {
     transform: translateX(2rem);
+    ${({ theme }) => theme.mqxs} {
+      transform: translateX(1.5rem);
+    }
     &::before {
       transform: scaleX(1);
     }

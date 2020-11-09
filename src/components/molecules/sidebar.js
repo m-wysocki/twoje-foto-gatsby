@@ -59,6 +59,12 @@ const Sidebar = () => {
         <a href="https://www.instagram.com/twoje_foto/" target="_blank" rel="noreferrer">
           <FaInstagram />
         </a>
+        <S.Realization
+          href="mailto:mateusz.wysocki53@gmail.com"
+          title="kliknij, aby wysłać wiadomość e-mail"
+        >
+          realizacja: M.Wysocki
+        </S.Realization>
       </S.Socials>
       <S.FilmStrip right />
     </S.Sidebar>

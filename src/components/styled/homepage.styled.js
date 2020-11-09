@@ -6,11 +6,23 @@ export const HomeWrapper = styled.div`
   align-items: flex-start;
   height: 100vh;
   width: 100%;
+  ${({ theme }) => theme.mqmd} {
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Column = styled.div`
   width: 50%;
   height: 100%;
+  ${({ theme }) => theme.mqmd} {
+    width: 100%;
+    height: auto;
+    &:last-child {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -20,8 +32,15 @@ export const ImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  ${({ theme }) => theme.mqmd} {
+    max-height: 60vw;
+  }
   img {
     max-width: 100%;
+    ${({ theme }) => theme.mqmd} {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
@@ -32,4 +51,7 @@ export const Content = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 3.5rem;
+  ${({ theme }) => theme.mqxs} {
+    padding: 2rem;
+  }
 `;

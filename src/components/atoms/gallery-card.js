@@ -14,6 +14,12 @@ const Frame = styled.div`
   margin-left: 2rem;
   opacity: 0.6;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  ${({ theme }) => theme.mqxs} {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
   &::before {
     content: '';
     display: block;
@@ -23,6 +29,12 @@ const Frame = styled.div`
     top: 0.7rem;
     left: 0.7rem;
     background-color: #fff;
+    ${({ theme }) => theme.mqxs} {
+      width: calc(100% - 1rem);
+      height: calc(100% - 1rem);
+      top: 0.5rem;
+      left: 0.5rem;
+    }
   }
 `;
 
@@ -53,11 +65,27 @@ const ImageWrapper = styled.div`
 const Gallery = styled(TlLink)`
   &:nth-child(odd) {
     grid-column: 1/4;
+    ${({ theme }) => theme.mqsm} {
+      grid-column: 1/5;
+    }
+    ${({ theme }) => theme.mqxs} {
+      grid-column: auto;
+    }
   }
   &:nth-child(even) {
     grid-column: 3/6;
+    ${({ theme }) => theme.mqsm} {
+      grid-column: 2/6;
+    }
+    ${({ theme }) => theme.mqxs} {
+      grid-column: auto;
+    }
+
     ${Frame} {
       margin-left: -2rem;
+      ${({ theme }) => theme.mqxs} {
+        margin-left: -1rem;
+      }
     }
   }
   &:hover {

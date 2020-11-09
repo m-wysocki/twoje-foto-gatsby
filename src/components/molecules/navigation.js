@@ -13,6 +13,10 @@ const StyledNav = styled.nav`
     letter-spacing: 0.15rem;
     position: relative;
     padding-bottom: 0.5rem;
+    ${({ theme }) => theme.mqxs} {
+      font-size: 0.9rem;
+      letter-spacing: 0;
+    }
     &::before {
       content: '';
       width: 100%;

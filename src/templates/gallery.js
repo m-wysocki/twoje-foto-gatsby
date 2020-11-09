@@ -59,7 +59,7 @@ const GalleryTemplate = ({ data }) => {
         <ContentWrapper ref={contentWrapperRef} pageType="gallery">
           <SRLWrapper options={optionsLightbox}>
             <Masonry
-              breakpointCols={2}
+              breakpointCols={{ default: 2, 575: 1 }}
               className="my-masonry-grid"
               columnClassName="my-masonry-grid_column"
             >

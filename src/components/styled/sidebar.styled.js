@@ -10,11 +10,20 @@ export const Sidebar = styled.div`
     width: 100%;
     height: auto;
   }
+  ${({ theme }) => theme.mqxs} {
+    padding: 1.7rem 1.2rem;
+  }
 `;
 export const Header = styled.div`
   color: #fff;
   font-size: 3.3rem;
   line-height: 1.1;
+  ${({ theme }) => theme.mqmd} {
+    font-size: 2.5rem;
+  }
+  ${({ theme }) => theme.mqxs} {
+    font-size: 2rem;
+  }
 `;
 
 export const Date = styled.div`
@@ -38,11 +47,21 @@ export const FilmStrip = styled.div`
   background-size: 1rem 2rem;
   background-repeat: repeat-y;
 
+  ${({ theme }) => theme.mqxs} {
+    background-size: 0.5rem 1rem;
+    left: 0.5rem;
+    width: 0.5rem;
+  }
+
   ${({ right }) =>
     right &&
     css`
       right: 1rem;
       left: unset;
+      ${({ theme }) => theme.mqxs} {
+        right: 0.5rem;
+        left: unset;
+      }
     `}
 `;
 
@@ -53,12 +72,19 @@ export const ContentBox = styled.div`
   flex-direction: column;
   height: 100%;
   padding: 1rem;
+  ${({ theme }) => theme.mqmd} {
+    margin-top: 2rem;
+  }
 `;
 
 export const Logo = styled.img`
   max-width: 180px;
   margin-bottom: 2rem;
   width: 10vw;
+  ${({ theme }) => theme.mqmd} {
+    margin-bottom: 1rem;
+    width: 110px;
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -67,6 +93,9 @@ export const Paragraph = styled.p`
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
   font-weight: ${({ theme }) => theme.fontLight};
+  ${({ theme }) => theme.mqxs} {
+    font-size: 1rem;
+  }
 `;
 
 export const Socials = styled.div`
@@ -76,6 +105,10 @@ export const Socials = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: calc(100% - 7.5rem);
+  ${({ theme }) => theme.mqmd} {
+    display: none;
+  }
   svg {
     width: auto;
     height: 2rem;
@@ -85,5 +118,18 @@ export const Socials = styled.div`
     &:hover {
       fill: ${({ theme }) => theme.colorExtra};
     }
+  }
+`;
+
+export const Realization = styled.a`
+  color: ${({ theme }) => theme.colorTextLight};
+  font-size: 0.9rem;
+  align-self: center;
+  justify-self: flex-end;
+  margin-left: auto;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: ${({ theme }) => theme.colorExtra};
   }
 `;

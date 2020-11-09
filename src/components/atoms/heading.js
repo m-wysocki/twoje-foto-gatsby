@@ -10,6 +10,11 @@ export const Heading = styled.h2`
   width: auto;
   display: inline-block;
   z-index: 1;
+
+  ${({ theme }) => theme.mqxs} {
+    font-size: ${({ small }) => (small ? '1.2rem' : '1.6rem')};
+  }
+
   &::before {
     content: '';
     width: 100%;

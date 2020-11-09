@@ -7,6 +7,10 @@ export const Contact = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;
+  ${({ theme }) => theme.mqsm} {
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -14,6 +18,9 @@ export const LogoWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 50%;
+  ${({ theme }) => theme.mqsm} {
+    display: none;
+  }
   img {
     max-width: 200px;
     ${({ theme }) => theme.mqxl} {
@@ -28,6 +35,12 @@ export const ContactLinks = styled.div`
   grid-gap: 2rem;
   align-items: start;
   width: fit-content;
+  ${({ theme }) => theme.mqsm} {
+    width: 100%;
+  }
+  ${({ theme }) => theme.mqxs} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ContactItem = styled.div`
@@ -53,6 +66,10 @@ export const ContactAddress = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 10px;
+
+  ${({ theme }) => theme.mqxs} {
+    grid-column: auto;
+  }
 
   svg {
     font-size: 1.2rem;

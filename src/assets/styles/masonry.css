@@ -15,3 +15,20 @@
     display: block;
     margin-bottom: 2rem;
 }
+
+@media (max-width: 991px){
+    .my-masonry-grid {
+        margin-left: -1rem;
+    }
+    .my-masonry-grid_column > a {
+        margin-bottom: 1rem;
+    }
+    .my-masonry-grid_column {
+        padding-left: 1rem;
+    }
+}
+/*@media (max-width: 575px){*/
+/*    .my-masonry-grid_column {*/
+/*        width: 100% !important;*/
+/*    }*/
+/*}*/

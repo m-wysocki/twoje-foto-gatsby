@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import gsap from 'gsap';
+import Footer from '../molecules/footer';
 
 const StyledContentWrapper = styled.div`
   position: relative;
@@ -11,11 +12,20 @@ const StyledContentWrapper = styled.div`
     css`
       padding: 3.75rem 5rem;
       overflow: auto;
+      ${({ theme }) => theme.mqmd} {
+        padding: 2.75rem 2rem;
+      }
+      ${({ theme }) => theme.mqxs} {
+        padding: 2.5rem 1.5rem;
+      }
     `}
   ${({ pageType }) =>
     pageType === 'gallery' &&
     css`
       padding: 2rem;
+      ${({ theme }) => theme.mqmd} {
+        padding: 1rem;
+      }
     `}
   ${({ theme }) => theme.mqmd} {
     width: 100%;
