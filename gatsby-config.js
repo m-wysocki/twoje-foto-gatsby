@@ -16,12 +16,10 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
-        contentTypes: [
-          `gallery`,
-          `category`,
-          `user`
-        ],
+        apiURL: process.env.DEPLOY_URL
+          ? 'https://twoje-foto-cms.herokuapp.com/'
+          : 'http://localhost:1337',
+        contentTypes: [`gallery`, `category`, `user`],
         queryLimit: 1000,
       },
     },
@@ -48,17 +46,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Maven Pro\:300,400,500,600`
-        ],
-        display: 'swap'
-      }
+        fonts: [`Maven Pro\:300,400,500,600`],
+        display: 'swap',
+      },
     },
     {
-      resolve: "gatsby-plugin-transition-link",
+      resolve: 'gatsby-plugin-transition-link',
       options: {
-        layout: require.resolve('./src/layouts/index')
-      }
-    }
+        layout: require.resolve('./src/layouts/index'),
+      },
+    },
   ],
-}
+};
