@@ -17,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.DEPLOY_URL
-          ? 'https://twoje-foto-cms.herokuapp.com/'
+          ? 'https://twoje-foto-cms.herokuapp.com'
           : 'http://localhost:1337',
         contentTypes: [`gallery`, `category`, `user`],
         queryLimit: 1000,
