@@ -4,8 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
-
 const path = require(`path`);
 
 const makeRequest = (graphql, request) =>
@@ -81,19 +79,4 @@ exports.createPages = ({ actions, graphql }) => {
 
   // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([getGalleries, getCategories]);
-};
-
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /bad-module/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
 };
