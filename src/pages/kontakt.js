@@ -17,7 +17,8 @@ const ContactPage = () => {
   useSidebar({
     header: 'Kontakt',
     date: false,
-    paragraph: 'Tutaj możesz zobaczyć jak się z nami najprościej skontaktować bla bla bla',
+    paragraph:
+      'Tutaj możesz zobaczyć jak się z nami najprościej skontaktować. Tacos truffaut venmo, farm-to-table literally echo park',
   });
 
   const img = 'https://source.unsplash.com/800x800/?photo';
@@ -74,17 +75,18 @@ const ContactPage = () => {
           <S.Content>
             <Heading>Jak działamy?</Heading>
             <Paragraph>
-              Nagłówek trzeba jakiś ładniejszy wymyślić. Tutaj trzeba napisać kilka zdań o tym jak
-              wygląda cały proces od strony klienta.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, non. Lorem ipsum
+              dolor sit amet.
             </Paragraph>
             <Paragraph>
-              Zadzwoń lub napisz do nas, ustalimy dogodny termin i dogadamy szczegóły. Sesje robimy
-              w plenerze, w studiu i gdzie tam chcesz bla bla, dojeżdżamy, śmiejemy się he he.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias corporis eius
+              excepturi exercitationem facilis officia perferendis qui, repellat soluta
+              voluptatibus.
             </Paragraph>
             <Paragraph>
-              Po jakimś czasie dostajesz od nas tyle i tyle zdjęć w formie cyfrowej, tyle i tyle
-              wywołanych, jak chcesz to zrobimy Ci książkę albo co tam sobie wymyślisz. Czas
-              realizacji to mniej więcej tyle i tyle od sesji do otrzymania produktu.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias ducimus
+              earum molestiae placeat quia quis, rerum sunt? Debitis eaque eligendi quasi qui
+              ratione voluptatum. Lorem ipsum dolor sit amet.
             </Paragraph>
           </S.Content>
 

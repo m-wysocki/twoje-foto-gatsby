@@ -10,7 +10,8 @@ const AboutPage = () => {
   useSidebar({
     header: 'O nas',
     date: false,
-    paragraph: 'Tutaj możesz przeczytać kilka słów o nas bla bla bla',
+    paragraph:
+      'Tumblr brunch shoreditch, mumblecore forage selvage seitan neutra fingerstache actually la croix sustainable austin. Meh taxidermy',
   });
 
   const img = 'https://source.unsplash.com/800x800/?photo';

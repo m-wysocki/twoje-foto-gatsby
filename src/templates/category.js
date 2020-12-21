@@ -13,7 +13,7 @@ const CategoryTemplate = ({ data }) => {
     header: data.strapiCategory.name,
     date: false,
     paragraph:
-      'Przeglądaj zdjęcia z wybranej kategorii (może lepiej dać tu opisy wszystkich kategorii z osobna)',
+      'Crucifix sriracha craft beer VHS, wolf lomo meggings truffaut tbh. Air plant mixtape kale chips, jianbing helvetica +1 hoodie',
   });
 
   const galleryListRef = useRef(null);
