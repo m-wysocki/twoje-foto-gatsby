@@ -1,4 +1,4 @@
-# d!nner.
+# TwojeFoto
 
 ### Strona firmy fotograficznej TwojeFoto
 
